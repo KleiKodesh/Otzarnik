@@ -1,0 +1,12 @@
+﻿<Window x:Class="Otzarnik.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Otzarnik"        
+        xmlns:Otzarnik="clr-namespace:OtzarnikLib;assembly=OtzarnikLib"
+        mc:Ignorable="d"
+        SizeToContent="WidthAndHeight"
+        MinWidth="350" MinHeight="450">
+    <Otzarnik:OtzarnikView/>
+</Window>
