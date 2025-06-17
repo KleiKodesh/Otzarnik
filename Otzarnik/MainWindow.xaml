@@ -4,9 +4,25 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Otzarnik"        
-        xmlns:Otzarnik="clr-namespace:OtzarnikLib;assembly=OtzarnikLib"
+        xmlns:otzarnik="clr-namespace:OtzarnikLib.UI;assembly=OtzarnikLib"
         mc:Ignorable="d"
         SizeToContent="WidthAndHeight"
-        MinWidth="350" MinHeight="450">
-    <Otzarnik:OtzarnikView/>
+        MinWidth="350" MinHeight="450"
+        FlowDirection="RightToLeft"
+        FontSize="13"
+        FontFamily="Tahoma">
+    
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/WpfLib;component/Dictionaries/ThemedWindowDictionary.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <Window.Style>
+        <Style TargetType="Window" BasedOn="{StaticResource ThemedWindowStyle}"/>
+    </Window.Style>
+
+    <otzarnik:MainView/>
 </Window>

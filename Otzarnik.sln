@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Otzarnik", "Otzarnik\Otzarn
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OtzarnikLib", "OtzarnikLib\OtzarnikLib.csproj", "{960FD04C-0FAF-49CF-99F5-764444AAB544}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfLib", "..\WpfLib\WpfLib\WpfLib.csproj", "{494B02C1-54F2-4244-9A90-23C9984970E7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{960FD04C-0FAF-49CF-99F5-764444AAB544}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{960FD04C-0FAF-49CF-99F5-764444AAB544}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{960FD04C-0FAF-49CF-99F5-764444AAB544}.Release|Any CPU.Build.0 = Release|Any CPU
+		{494B02C1-54F2-4244-9A90-23C9984970E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{494B02C1-54F2-4244-9A90-23C9984970E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{494B02C1-54F2-4244-9A90-23C9984970E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{494B02C1-54F2-4244-9A90-23C9984970E7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

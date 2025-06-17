@@ -4,7 +4,10 @@ using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Text.Json;
+using System.Threading.Tasks;
+using System.Windows.Threading;
 using WpfLib;
+using WpfLib.Helpers;
 
 namespace OtzarnikLib.AppData
 {
@@ -13,13 +16,14 @@ namespace OtzarnikLib.AppData
         public string Path { get; set; }
         public string Name { get; set; }
         public DateTime Date { get; set; }
+        public string HebrewDate { get; set; }
     }
 
     public class History : ViewModelBase
     {
         readonly string filePath = Path.Combine(Globals.AppDataFolder, "History.json");
 
-        ObservableCollection<HistoryItem> _items;
+        ObservableCollection<HistoryItem> _items = new ObservableCollection<HistoryItem>();
         public ObservableCollection<HistoryItem> Items
         {
             get => _items;
@@ -39,12 +43,8 @@ namespace OtzarnikLib.AppData
             if (File.Exists(filePath))
             {
                 string json = File.ReadAllText(filePath);
-                Items = JsonSerializer.Deserialize<ObservableCollection<HistoryItem>>(json)
-                    ?? new ObservableCollection<HistoryItem>();
-                return;
+                Items = JsonSerializer.Deserialize<ObservableCollection<HistoryItem>>(json);
             }
-
-            Items = new ObservableCollection<HistoryItem>();
         }
 
         public void Add(string path, string name)
@@ -59,7 +59,8 @@ namespace OtzarnikLib.AppData
             {
                 Path = path,
                 Name = name,
-                Date = DateTime.Now
+                Date = DateTime.Now,
+                HebrewDate = HebrewDateHelper.GetHebrewDateTime(DateTime.Now),
             };
 
             Items.Add(item);

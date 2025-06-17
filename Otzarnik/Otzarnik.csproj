@@ -38,6 +38,12 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Otzarnik.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <NoWin32Manifest>true</NoWin32Manifest>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="CommunityToolkit.Mvvm, Version=8.4.0.0, Culture=neutral, PublicKeyToken=4aff67a105548ee2, processorArchitecture=MSIL">
       <HintPath>..\packages\CommunityToolkit.Mvvm.8.4.0\lib\netstandard2.0\CommunityToolkit.Mvvm.dll</HintPath>
@@ -168,10 +174,17 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\WpfLib\WpfLib\WpfLib.csproj">
+      <Project>{494b02c1-54f2-4244-9a90-23c9984970e7}</Project>
+      <Name>WpfLib</Name>
+    </ProjectReference>
     <ProjectReference Include="..\OtzarnikLib\OtzarnikLib.csproj">
       <Project>{960fd04c-0faf-49cf-99f5-764444aab544}</Project>
       <Name>OtzarnikLib</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Otzarnik.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Web.WebView2.1.0.3296.44\build\Microsoft.Web.WebView2.targets" Condition="Exists('..\packages\Microsoft.Web.WebView2.1.0.3296.44\build\Microsoft.Web.WebView2.targets')" />

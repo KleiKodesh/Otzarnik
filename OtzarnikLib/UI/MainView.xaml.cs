@@ -13,16 +13,21 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace OtzarnikLib
+namespace OtzarnikLib.UI
 {
     /// <summary>
-    /// Interaction logic for OtzarnikView.xaml
+    /// Interaction logic for MainView.xaml
     /// </summary>
-    public partial class OtzarnikView : UserControl
+    public partial class MainView : UserControl
     {
-        public OtzarnikView()
+        public MainView()
         {
             InitializeComponent();
+        }
+
+        public void LoadItem(string path, string scrollIndex = "")
+        {
+
         }
     }
 }

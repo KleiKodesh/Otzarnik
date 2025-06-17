@@ -10,5 +10,6 @@ namespace OtzarnikLib.FsViewer
     public class TreeItem : CheckedTreeItemBase<TreeItem>
     {
         public string Path { get; set; }
+        public string Extension { get; set; }
     }
 }

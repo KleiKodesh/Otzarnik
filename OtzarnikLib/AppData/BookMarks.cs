@@ -1,12 +1,11 @@
 ﻿using CommunityToolkit.Mvvm.Input;
 using OtzarnikLib.FileViewer;
-using OtzarnikLib.FsViewer;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Globalization;
 using System.IO;
 using System.Text.Json;
+using System.Windows.Controls;
 using WpfLib;
 using WpfLib.Controls;
 using WpfLib.Helpers;
@@ -48,7 +47,9 @@ namespace OtzarnikLib.AppData
 
         public RelayCommand<FileView> AddBookMarkCommand { get; }
         public RelayCommand<BookMarkItem> RemoveBookMarkCommand { get; }
-        public RelayCommand<BookMarkGroup> RemoveBookMarkGroupCommand { get; }
+        public RelayCommand<TabControl> AddGroupCommand { get; }
+        public RelayCommand<BookMarkGroup> RemoveGroupCommand { get; }
+
 
         public BookMarks()
         {
@@ -56,7 +57,8 @@ namespace OtzarnikLib.AppData
             LoadGroups();
             AddBookMarkCommand = new RelayCommand<FileView>(AddBookMark);
             RemoveBookMarkCommand = new RelayCommand<BookMarkItem>(RemoveBookMark);
-            RemoveBookMarkGroupCommand = new RelayCommand<BookMarkGroup>(RemoveGroup);
+            AddGroupCommand = new RelayCommand<TabControl>(AddTabGroup);
+            RemoveGroupCommand = new RelayCommand<BookMarkGroup>(RemoveGroup);
         }
 
         void LoadCollection()
@@ -116,6 +118,22 @@ namespace OtzarnikLib.AppData
             string json = JsonSerializer.Serialize(Items);
             File.WriteAllText(bookMarksFilePath, json);
         }
+
+        void AddTabGroup(TabControl tabControl)
+        {
+            var group = new List<BookMarkItem>();
+            foreach (TabItem item in tabControl.Items)
+            {
+                if (item.Content is FileView fileView)
+                    group.Add(new BookMarkItem
+                    {
+                        Path = fileView.TreeItem?.Path,
+                        ScrollIndex = fileView.ScrollIndex() ?? "0"
+                    });
+            }
+            AddGroup(group);
+        }
+
 
         public void AddGroup(List<BookMarkItem> group)
         {
